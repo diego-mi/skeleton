@@ -68,8 +68,7 @@ abstract class AbstractController extends AbstractActionController
             if ($form->isValid()){
 
                 $service = $this->getServiceLocator()->get($this->service);
-
-                if ($service->save($request->getPost()->toArray())){
+                if ($service->save($request->getPost()->toArray(), $this->identity()->getId())){
                     $this->flashMessenger()->addSuccessMessage('Cadastrado com sucesso!');
                 }else{
                     $this->flashMessenger()->addErrorMessage('Não foi possivel cadastrar! Tente mais tarde.');

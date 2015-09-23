@@ -6,6 +6,10 @@ $(document).ready(function () {
 			$(".postar").addClass("active");
 			console.log("b");	
 		}
+	});postarCancelar
+
+	$("#postarCancelar").on( "click", function() {
+		$(".postar").removeClass("active");
 	});
 
 });

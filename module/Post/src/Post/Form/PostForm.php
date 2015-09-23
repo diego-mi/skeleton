@@ -1,12 +1,7 @@
 <?php
 namespace Post\Form;
 
-use Zend\Form\Element\Button;
-use Zend\Form\Element\Text;
-use Zend\Form\Element\Textarea;
 use Zend\Form\Form;
-
-use Post\Form\PostFilter;
 
 class PostForm extends Form
 {
@@ -27,12 +22,18 @@ class PostForm extends Form
         $this->add(array(
             'name' => 'type',
             'type' => 'Hidden',
+            'value' => '1',
+            'attributes' => array(
+                'value' => '1',
+            ),
         ));
 
         $this->add(array(
             'name' => 'authorId',
             'type' => 'Hidden',
-            'value'=> 1,
+            'attributes' => array(
+                'value' => '1',
+            ),
         ));
 
         $this->add(array(

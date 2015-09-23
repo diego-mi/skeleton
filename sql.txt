@@ -16,11 +16,13 @@ CREATE TABLE posts
 	FOREIGN KEY posts(author_id) REFERENCES user(id)
 )
 
-CREATE VIEW vwPosts AS
-SELECT posts.id AS post_id, posts.content as post_content, posts.type as post_type, user.id AS user_id, user.name as user_name
+CREATE OR REPLACE VIEW vwposts AS
+SELECT posts.id AS post_id, posts.content as post_content, posts.type as post_type, posts.date as post_date, posts.classification as post_classification, posts.privacity as post_privacity, user.id AS user_id, user.name as user_name, post_types.name as post_type_name, post_types.id as post_type_id
 FROM posts
 INNER JOIN user
-ON posts.author_id=user.id;
+ON posts.author_id=user.id
+INNER JOIN post_types
+ON posts.type=post_types.id
 
 INSERT INTO user (name, login, email, password)
 VALUES ('Diego Mi Campos', 'diegomi', 'diegomister@gmail.com', '1234');

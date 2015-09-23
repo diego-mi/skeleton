@@ -18,8 +18,9 @@ class IndexController extends AbstractController
 
     public function indexAction()
     {
-        $list = $this->getEm()->getRepository($this->entity)->findAll();
-        return new ViewModel(array('list' => $list));
+        $list = $this->getEm()->getRepository($this->entity)->findBy(array(), array('postId' => 'DESC'));
+        $form = $this->getServiceLocator()->get($this->form);
+        return new ViewModel(array('list' => $list, 'form'=> $form));
     }
 
     public function inserirAction()

@@ -6,15 +6,16 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>INSPINIA | Main view</title>
+    <title>Project</title>
 
     <!-- css -->
-    <?php echo $this->headLink(array('rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/img/favicon.ico'))
-        ->prependStylesheet($this->basePath() . '/css/bootstrap.min.css')
+    <?php echo $this->headLink()
+        ->prependStylesheet($this->basePath() . '/css/main.css')
+        ->prependStylesheet($this->basePath() . '/css/style.css')
         ->prependStylesheet($this->basePath() . '/font-awesome/css/font-awesome.css')
-        ->prependStylesheet($this->basePath() . '/font-awesome/css/font-awesome.css')
-        ->prependStylesheet($this->basePath() . '/css/style.css') ?>
-
+        ->prependStylesheet($this->basePath() . '/css/animate.css')
+        ->prependStylesheet($this->basePath() . '/css/awesome-bootstrap-checkbox.css')
+        ->prependStylesheet($this->basePath() . '/css/bootstrap.min.css') ?>
 </head>
 
 <body class="md-skin fixed-nav">
@@ -43,7 +44,7 @@
                             <li><a href="contacts.html">Contacts</a></li>
                             <li><a href="mailbox.html">Mailbox</a></li>
                             <li class="divider"></li>
-                            <li><a href="login.html">Logout</a></li>
+                            <li><a href="<?php echo($this->url('logout'));?>">Logout</a></li>
                         </ul>
                     </div>
                     <div class="logo-element">
@@ -51,19 +52,19 @@
                     </div>
                 </li>
                 <li class="active">
-                    <a href="feed"><i class="fa fa-th-large"></i> <span class="nav-label">Feed</span></a>
+                    <a href="
+                        <?php echo $this->url(
+                            'post',
+                            array(
+                                'action'=>'index'
+                            )
+                        );?>
+                        "><i class="fa fa-th-large"></i> <span class="nav-label">Feed</span></a>
                 </li>
                 <li>
-                    <a href="Postar"><i class="fa fa-th-large"></i> <span class="nav-label">Postar</span></a>
-                </li>
-                <li>
-                    <a href="feed3.html"><i class="fa fa-th-large"></i> <span class="nav-label">Feed3</span></a>
-                </li>
-                <li>
-                    <a href="friends.html"><i class="fa fa-th-large"></i> <span class="nav-label">Friends</span></a>
-                </li>
-                <li>
-                    <a href="friendsSearch.html"><i class="fa fa-th-large"></i> <span class="nav-label">Search Friends</span></a>
+                    <a href="
+                        <?php echo($this->url('post') . "/inserir");?>
+                        "><i class="fa fa-th-large"></i> <span class="nav-label">Postar</span></a>
                 </li>
             </ul>
 
@@ -86,7 +87,7 @@
                 </div>
                 <ul class="nav navbar-top-links navbar-right">
                     <li>
-                        <a href="#">
+                        <a href="<?php echo($this->url('logout'));?>">
                             <i class="fa fa-sign-out"></i> Log out
                         </a>
                     </li>
@@ -193,6 +194,7 @@
     <!-- Custom and plugin javascript -->
     <script src="<?php echo($this->basePath() . '/'); ?>js/inspinia.js"></script>
     <script src="<?php echo($this->basePath() . '/'); ?>js/plugins/pace/pace.min.js"></script>
+    <script src="<?php echo($this->basePath() . '/'); ?>js/postar.js"></script>
 
 
 </body>

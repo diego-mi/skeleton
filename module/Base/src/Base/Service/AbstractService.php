@@ -16,7 +16,7 @@ abstract class AbstractService
 
     public function save(Array $data = array())
     {
-        if (isset($data['id'])){
+        if ((isset($data['id']) && ($data['id'] != ""))) {
 
             $entity = $this->em->getReference($this->entity, $data['id']);
 
@@ -26,7 +26,6 @@ abstract class AbstractService
         } else {
             $entity = new $this->entity($data);
         }
-
         $this->em->persist($entity);
         $this->em->flush();
 
@@ -45,22 +44,3 @@ abstract class AbstractService
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

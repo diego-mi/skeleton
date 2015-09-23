@@ -1,12 +1,7 @@
 <?php
 namespace Post\Form;
 
-use Zend\Filter\StringTrim;
-use Zend\Filter\StripTags;
-use Zend\InputFilter\Input;
 use Zend\InputFilter\InputFilter;
-use Zend\Validator\InArray;
-use Zend\Validator\NotEmpty;
 
 class PostFilter extends InputFilter
 {
